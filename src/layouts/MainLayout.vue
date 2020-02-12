@@ -20,10 +20,12 @@
         </md-toolbar>
 
         <md-list>
-          <md-list-item>
-            <md-icon>move_to_inbox</md-icon>
-            <span class="md-list-item-text">Inbox</span>
-          </md-list-item>
+          <router-link to="/dashboard" class="nav-link">
+            <md-list-item>
+              <md-icon>move_to_inbox</md-icon>
+              <span class="md-list-item-text">Inbox</span>
+            </md-list-item>
+          </router-link>
 
           <md-list-item>
             <md-icon>send</md-icon>

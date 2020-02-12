@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import MainLayout from "../views/MainLayout.vue";
+import MainLayout from "../layouts/MainLayout.vue";
+import Dashboard from "../views/Dashboard.vue";
 
 Vue.use(VueRouter);
 
@@ -8,7 +9,14 @@ const routes = [
   {
     path: "/",
     name: "MainLayout",
-    component: MainLayout
+    component: MainLayout,
+    children: [
+      {
+        path: "/dashboard",
+        name: "Dashboard",
+        component: Dashboard
+      },
+    ]
   },
 ];
 
