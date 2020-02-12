@@ -58,6 +58,19 @@
             <md-icon>error</md-icon>
             <span class="md-list-item-text">Spam</span>
           </md-list-item>
+          
+          <md-list-item md-expand>
+          <md-icon>video_library</md-icon>
+          <span class="md-list-item-text">Video</span>
+
+          <md-list slot="md-expand">
+            <md-list-item class="md-inset">Humor</md-list-item>
+            <md-list-item class="md-inset">Music</md-list-item>
+            <md-list-item class="md-inset">Movies</md-list-item>
+            <md-list-item class="md-inset">TV Shows</md-list-item>
+          </md-list>
+        </md-list-item>
+        
         </md-list>
       </md-app-drawer>
 
