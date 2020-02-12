@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import MainLayout from "../layouts/MainLayout.vue";
 import Dashboard from "../views/Dashboard.vue";
+import LoginLayout from "../layouts/LoginLayout.vue";
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,18 @@ const routes = [
         component: Dashboard
       },
     ]
+  },
+  {
+    path: "/login",
+    name: "LoginLayout",
+    component: LoginLayout,
+    // children: [
+    //   {
+    //     path: "/dashboard",
+    //     name: "Dashboard",
+    //     component: Dashboard
+    //   },
+    // ]
   },
 ];
 
