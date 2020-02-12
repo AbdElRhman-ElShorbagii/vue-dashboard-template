@@ -6,6 +6,23 @@
           <md-icon>menu</md-icon>
         </md-button>
         <span class="md-title">My Title</span>
+        <div class="md-toolbar-section-end">
+          <md-menu md-size="auto">
+            <md-button md-menu-trigger>Admin</md-button>
+
+            <md-menu-content>
+  
+              <router-link to="/profile"> 
+                <md-menu-item>Profile</md-menu-item>
+              </router-link>
+
+              <router-link to="/login"> 
+                <md-menu-item><span style="color:red;">Logout</span></md-menu-item>
+              </router-link>
+
+            </md-menu-content>
+          </md-menu>
+        </div>
       </md-app-toolbar>
 
       <md-app-drawer :md-active.sync="menuVisible" md-persistent="mini">
