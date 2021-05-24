@@ -1,112 +1,100 @@
 <template>
-  <div class="page-container">
-    <md-app>
-      <md-app-toolbar class="md-primary" md-elevation="0">
-        <md-button
-          class="md-icon-button"
-          @click="toggleMenu"
-          v-if="!menuVisible"
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+    >
+        <v-list>
+          <v-list-item class="px-2">
+            <v-list-item-avatar>
+              <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
+            </v-list-item-avatar>
+            <v-list-item-content>
+              <v-list-item-title class="title">
+                Sandra Adams
+              </v-list-item-title>
+              <v-list-item-subtitle>sandra_a88@gmail.com</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+
+        <v-divider></v-divider>
+
+        <v-list
+          nav
+          dense
         >
-          <md-icon>menu</md-icon>
-        </md-button>
-        <span class="md-title">My Title</span>
-        <div class="md-toolbar-section-end">
-          <md-menu md-size="auto">
-            <md-button md-menu-trigger>Admin</md-button>
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>mdi-folder</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>My Files</v-list-item-title>
+          </v-list-item>
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>mdi-account-multiple</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Shared with me</v-list-item-title>
+          </v-list-item>
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>mdi-star</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Starred</v-list-item-title>
+          </v-list-item>
+        </v-list>
+    </v-navigation-drawer>
 
-            <md-menu-content>
-              <router-link to="/profile">
-                <md-menu-item>Profile</md-menu-item>
-              </router-link>
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-              <router-link to="/login">
-                <md-menu-item
-                  ><span style="color:red;">Logout</span></md-menu-item
-                >
-              </router-link>
-            </md-menu-content>
-          </md-menu>
-        </div>
-      </md-app-toolbar>
+      <v-toolbar-title>Application</v-toolbar-title>
+            <v-spacer></v-spacer>
 
-      <md-app-drawer :md-active.sync="menuVisible" md-persistent="mini">
-        <md-toolbar class="md-transparent" md-elevation="0">
-          <span>Navigation</span>
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
 
-          <div class="md-toolbar-section-end">
-            <md-button class="md-icon-button md-dense" @click="toggleMenu">
-              <md-icon>keyboard_arrow_left</md-icon>
-            </md-button>
-          </div>
-        </md-toolbar>
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
 
-        <md-list>
-          <router-link to="/dashboard" class="nav-link">
-            <md-list-item>
-              <md-icon>move_to_inbox</md-icon>
-              <span class="md-list-item-text">Inbox</span>
-            </md-list-item>
-          </router-link>
+      <v-menu
+        left
+        bottom
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
 
-          <md-list-item>
-            <md-icon>send</md-icon>
-            <span class="md-list-item-text">Sent Mail</span>
-          </md-list-item>
+        <v-list>
+          <v-list-item>
+            <v-list-item-title>Profile</v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title>Logout</v-list-item-title>
+          </v-list-item>
 
-          <md-list-item>
-            <md-icon>delete</md-icon>
-            <span class="md-list-item-text">Trash</span>
-          </md-list-item>
+        </v-list>
+      </v-menu>
 
-          <md-list-item>
-            <md-icon>error</md-icon>
-            <span class="md-list-item-text">Spam</span>
-          </md-list-item>
 
-          <md-list-item md-expand>
-            <md-icon>video_library</md-icon>
-            <span class="md-list-item-text">Video</span>
+    </v-app-bar>
 
-            <md-list slot="md-expand">
-              <md-list-item class="md-inset">Humor</md-list-item>
-              <md-list-item class="md-inset">Music</md-list-item>
-              <md-list-item class="md-inset">Movies</md-list-item>
-              <md-list-item class="md-inset">TV Shows</md-list-item>
-            </md-list>
-          </md-list-item>
-        </md-list>
-      </md-app-drawer>
-
-      <md-app-content>
-        <router-view />
-      </md-app-content>
-    </md-app>
-  </div>
+    <v-main>
+      <!--  -->
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-export default {
-  name: "MainLayout",
-  data: () => ({
-    menuVisible: false
-  }),
-  methods: {
-    toggleMenu() {
-      this.menuVisible = !this.menuVisible;
-    }
+  export default {
+    data: () => ({ drawer: null }),
   }
-};
 </script>
-
-<style lang="scss" scoped>
-.md-app {
-  min-height: 350px;
-  border: 1px solid rgba(#000, 0.12);
-}
-
-// Demo purposes only
-.md-drawer {
-  width: 230px;
-  max-width: calc(100vw - 125px);
-}
-</style>
