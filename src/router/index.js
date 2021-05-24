@@ -16,13 +16,13 @@ const routes = [
         path: "/dashboard",
         name: "Dashboard",
         component: Dashboard
-      },
+      }
     ]
   },
   {
     path: "/login",
     name: "LoginLayout",
-    component: LoginLayout,
+    component: LoginLayout
     // children: [
     //   {
     //     path: "/dashboard",
@@ -30,7 +30,7 @@ const routes = [
     //     component: Dashboard
     //   },
     // ]
-  },
+  }
 ];
 
 const router = new VueRouter({

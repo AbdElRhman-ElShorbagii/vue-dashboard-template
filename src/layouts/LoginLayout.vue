@@ -1,11 +1,12 @@
 <template>
   <div class="centered-container">
     <md-content class="md-elevation-3">
-
       <div class="title">
-        <img src="https://vuematerial.io/assets/logo-color.png">
+        <img src="https://vuematerial.io/assets/logo-color.png" />
         <div class="md-title">Vue Material</div>
-        <div class="md-body-1">Build beautiful apps with Material Design and Vue.js</div>
+        <div class="md-body-1">
+          Build beautiful apps with Material Design and Vue.js
+        </div>
       </div>
 
       <div class="form">
@@ -22,13 +23,19 @@
 
       <div class="actions md-layout md-alignment-center-space-between">
         <a href="/resetpassword">Forget password</a>
-        <a href="/"><md-button class="md-raised md-primary" @click="auth">Log in</md-button></a>
+        <a href="/"
+          ><md-button class="md-raised md-primary" @click="auth"
+            >Log in</md-button
+          ></a
+        >
       </div>
 
       <div class="loading-overlay" v-if="loading">
-        <md-progress-spinner md-mode="indeterminate" :md-stroke="2"></md-progress-spinner>
+        <md-progress-spinner
+          md-mode="indeterminate"
+          :md-stroke="2"
+        ></md-progress-spinner>
       </div>
-
     </md-content>
     <div class="background" />
   </div>
@@ -115,4 +122,3 @@ export default {
   }
 }
 </style>
-
