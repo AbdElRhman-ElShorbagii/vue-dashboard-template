@@ -74,10 +74,10 @@
         </template>
 
         <v-list>
-          <v-list-item>
+          <v-list-item link>
             <v-list-item-title>Profile</v-list-item-title>
           </v-list-item>
-          <v-list-item>
+          <v-list-item link to="/login">
             <v-list-item-title>Logout</v-list-item-title>
           </v-list-item>
 
